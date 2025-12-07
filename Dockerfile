@@ -1,6 +1,7 @@
 FROM ubuntu:latest
 LABEL "Author"="Padma"
 LABEL "Project"="nano"
+ENV DEBIAN_FRONTEND=noninteractive #to get noninteractive session while running docker build
 #Every RUN instruction creates a layer, it's good to have less layers as possible by combining commands using &&
 RUN apt update && apit install git -y
 RUN apt install apache2 -y
