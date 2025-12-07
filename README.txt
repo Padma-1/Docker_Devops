@@ -11,5 +11,10 @@ Ex: https://www.tooplate.com/zip-templates/2147_titan_folio.zip
 3. Write the Dockerfile
 4. Build an image using: docker build -t <CustomImageName> <pathofDockerfile>. ex: docker build -t nanoimg .. Once build completes, run docker images which shows nanoimg.
 5. To create a container from image use, docker run -d --name nanowebsite -p 9080:80 nanoimg
-6. To test, In browser give <PublicIPofInstance>:9080
+6. To test, In browser give <PublicIPofInstance>:9080. Now We have containerized our application.
+7. Let’s push our image to DockerHub. Create an account in DockerHub if not have. In order to push our image to DockerHub or any registry, the image name should be accountName/imageName, example my DockerHub account name is upadma, then upadma/nanoimg. Build the image again, it’s ok because image ID will be same even if we build again. docker build -t upadma/nanoimg .. 
+8. To login to DockerHub from Docker engine, command is docker login, give your DockerHub username and password.
+9. To push the image, docker push upadma/nanoimg. Now our image publicly available on DockerHub as we didn’t make it private.
+10. Now we can delete the images locally and do docker run -d --name nanowebsite -p 9080:80 upadma/nanoimg,  when we run it, first it will check any image with this name available locally or not, if not then check in DockerHub and pull it from there.
+
 
